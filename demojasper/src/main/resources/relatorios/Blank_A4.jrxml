@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e39552ed-168d-45a5-95e6-aa0f08d94451">
+	<parameter name="assinatura" class="java.io.InputStream"/>
+	<parameter name="caminhoTemplate" class="java.io.File"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nome" class="java.lang.String"/>
+	<field name="coberturas" class="java.util.List"/>
+	<title>
+		<band height="55">
+			<staticText>
+				<reportElement x="268" y="25" width="100" height="30" uuid="7f4d7915-be1f-44a8-90dc-cc9212c3eaea"/>
+				<text><![CDATA[titulo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="311">
+			<textField>
+				<reportElement x="30" y="25" width="100" height="30" uuid="1b40cd84-741d-47b5-a4ff-6dd4f569ec55"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="182" y="111" width="200" height="200" uuid="57de85bd-0ebb-4583-aa03-78e8fb7c1f6e"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{coberturas})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{caminhoTemplate}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="140">
+			<image>
+				<reportElement x="150" y="30" width="250" height="110" uuid="8e3ca8ea-fa13-496c-b0b0-acfaed946e9c"/>
+				<imageExpression><![CDATA[$P{assinatura}]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>
